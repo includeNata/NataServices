@@ -1,68 +1,63 @@
-##MarketplaceNata
+# MarketplaceNata
 
+## Funcionalidades Principais
 
-###Funcionalidades Principais
-1. **Autenticação de Funcionarios**
-  - Paginação, Cadastro, login,atualização da senha com envio de email, atulização do dados do funcionario e autenticação com security.
-       <br> Employee {
-       <br> Id,
-       <br>nome,
-       <br> email,
-       <br>password,
-       <br>data_de_aniversario,
-       <br>foto,
-       <br> Skill
-       <br> Feedbacks
-  <br>}
+1. **Autenticação de Funcionários**
+   - Paginação, cadastro, login, atualização de senha com envio de e-mail, atualização dos dados do funcionário e autenticação com segurança.
+   - **Employee**
+     - Id
+     - Nome
+     - Email
+     - Password
+     - Data de aniversário
+     - Foto
+     - Skill
+     - Feedbacks
 
 2. **Criação de Habilidades**
-  - Cadastro,atualizar,deletar,paginação e buscar por id.
-      <br> Skill {
-      <br> Id,
-      <br> Area,
-      <br> formação,
-      <br> tecnologias,
-      <br> certificados,
-      <br> descrição,
-<br>}
+   - Cadastro, atualização, deleção, paginação e busca por ID.
+   - **Skill**
+     - Id
+     - Área
+     - Formação
+     - Tecnologias
+     - Certificados
+     - Descrição
 
-3. **Criação de Trabalho**
- - Cadastro,atualizar,listar works, buscar work por id.
-   <br> Work {
-   <br> Id,
-   <br> Nome,
-   <br> data_de_inicio,
-   <br> data_de_finalização,
-   <br> id_client,
-   <br> id_funcionario,
-   <br>}
+3. **Criação de Trabalhos**
+   - Cadastro, atualização, listagem de trabalhos e busca por ID.
+   - **Work**
+     - Id
+     - Nome
+     - Data de início
+     - Data de finalização
+     - Id do cliente
+     - Id do funcionário
 
-4. **Criação de feedbacks**
-  - Cadastro,deletar,atualizar.
-  <br> feedback {
-  <br> Id,
-  <br> texto,
-  <br> data,
-  <br> id_client
-  <br> id_funcionario
-  <br>}
+4. **Criação de Feedbacks**
+   - Cadastro, deleção e atualização.
+   - **Feedback**
+     - Id
+     - Texto
+     - Data
+     - Id do cliente
+     - Id do funcionário
 
 5. **Cadastro de Clientes**
-  - Cadastro,login,atualização da senha com envio de email,atulização do dados do cliente e autenticação com security.
-  <br> Client {
-  <br> id,
-  <br> nome,
-  <br> email,
-  <br> password,
-  <br>}
+   - Cadastro, login, atualização de senha com envio de e-mail, atualização dos dados do cliente e autenticação com segurança.
+   - **Client**
+     - Id
+     - Nome
+     - Email
+     - Password
 
-###Funcionalidades extras###
-  <br>
-   <br>  - Buscar um perfil de Funcionario por nome.
-   <br>  - Buscar um Trabalho de um funcionario pelo nome do trabalho.
-   <br>  - Listar funcionarios por x tecnologia.
-   <br>  - Listar funcionarios com feedbacks positivos.
-   <br>  - Chat em real-time ultima opção.
-   <br>  - Metodo de pagamentos.
-   <br>  - Configurar a biblioteca para enviar emails.
-   <br>  - Fazer login com apenas o google ou github.
+## Funcionalidades Extras
+
+- Buscar um perfil de funcionário por nome.
+- Buscar um trabalho de um funcionário pelo nome do trabalho.
+- Listar funcionários por determinada tecnologia.
+- Listar funcionários com feedbacks positivos.
+- Chat em tempo real.
+- Método de pagamentos.
+- Configurar a biblioteca para envio de e-mails.
+- Login com Google ou GitHub.
