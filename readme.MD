@@ -55,3 +55,11 @@
   <br> email,
   <br> password,
   <br>}
+
+###Funcionalidades extras###
+  **Buscar um perfil de Funcionario por nome**
+  **Buscar um Trabalho de um funcionario pelo nome do trabalho**
+  **Listar funcionarios por x tecnologia**
+  **Listar funcionarios com feedbacks positivos**
+  **Chat em real-time ultima opção**
+  **Metodo de pagamentos**
