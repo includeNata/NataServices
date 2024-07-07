@@ -15,8 +15,7 @@
   <br>}
 
 2. **Criação de Habilidades**
-
-  -Cadastro,atualizar,deletar,paginação e buscar por id.
+  - Cadastro,atualizar,deletar,paginação e buscar por id.
      <br> Skill {
      <br> Id,
      <br> Area,
