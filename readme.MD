@@ -64,3 +64,4 @@
    <br>  - Listar funcionarios com feedbacks positivos.
    <br>  - Chat em real-time ultima opção.
    <br>  - Metodo de pagamentos.
+   <br>  - Configurar a biblioteca para enviar emails.
