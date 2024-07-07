@@ -36,3 +36,13 @@
    <br> id_client,
    <br> id_funcionario,
    <br>}
+
+4. **Criação de feedbacks**
+  - Cadastro,deletar,atualizar.
+  <br> feedback {
+  <br> Id,
+  <br> texto,
+  <br> data,
+  <br> id_client
+  <br> id_funcionario
+  <br>}
