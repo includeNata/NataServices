@@ -4,7 +4,7 @@
 ###Funcionalidades Principais
 1. **Autenticação de Funcionarios**
   - Cadastro, login,atualização da senha com envio de email, atulização do dados do funcionario e autenticação com security.
-  - <br> **Entidade**: <br> Employee {
+     **Entidade**: <br> Employee {
      <br>nome,
      <br> email,
      <br>password,
