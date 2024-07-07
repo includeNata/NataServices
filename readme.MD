@@ -46,3 +46,12 @@
   <br> id_client
   <br> id_funcionario
   <br>}
+
+5. **Cadastro de Clientes**
+  - Cadastro,login,atualização da senha com envio de email,atulização do dados do cliente e autenticação com security.
+  <br> Client {
+  <br> id,
+  <br> nome,
+  <br> email,
+  <br> password,
+  <br>}
