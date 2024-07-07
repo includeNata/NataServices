@@ -58,9 +58,9 @@
 
 ###Funcionalidades extras###
   <br>
-   <br> ** - Buscar um perfil de Funcionario por nome**
-   <br> ** - Buscar um Trabalho de um funcionario pelo nome do trabalho**  
-   <br> ** - Listar funcionarios por x tecnologia**
-   <br> ** - Listar funcionarios com feedbacks positivos**
-   <br> ** - Chat em real-time ultima opção**
-   <br> ** - Metodo de pagamentos**
+   <br>  - Buscar um perfil de Funcionario por nome
+   <br>  - Buscar um Trabalho de um funcionario pelo nome do trabalho
+   <br>  - Listar funcionarios por x tecnologia
+   <br>  - Listar funcionarios com feedbacks positivos
+   <br>  - Chat em real-time ultima opção**
+   <br>  - Metodo de pagamentos**
