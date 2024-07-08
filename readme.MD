@@ -1,7 +1,6 @@
 # MarketplaceNata
 
 ## Funcionalidades Principais
-
 1. **Autenticação de Funcionários**
    - Paginação, cadastro, login, atualização de senha com envio de e-mail, atualização dos dados do funcionário e autenticação com segurança.
    - **Employee**
