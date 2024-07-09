@@ -2,6 +2,8 @@ package com.server.nata_service.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -13,15 +15,20 @@ public class Client {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "varchar(30)")
+    @Column(columnDefinition = "varchar(30)", nullable = false)
     private String name;
 
-    @Column(columnDefinition = "varchar(45)" ,unique = true)
+    @Column(columnDefinition = "varchar(45)" ,unique = true ,nullable = false)
     private String email;
 
-    @Column(columnDefinition = "varchar(35)")
+    @Column(columnDefinition = "varchar(35)" ,nullable = false)
     private String password;
 
+    @OneToMany(mappedBy = "client")
+    private List<FeedBack> feedBacks = new ArrayList<>();
+
+    @OneToMany(mappedBy = "contractor")
+    private List<Work> works = new ArrayList<>();
     public Client() {
     }
 
@@ -62,6 +69,14 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<FeedBack> getFeedBacks() {
+        return feedBacks;
+    }
+
+    public List<Work> getWorks() {
+        return works;
     }
 
     @Override

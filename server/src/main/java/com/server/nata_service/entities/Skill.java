@@ -27,6 +27,9 @@ public class Skill {
     @Column(columnDefinition = "varchar(20)")
     private String technology;
 
+    @OneToOne(mappedBy = "skill")
+    private Employee employee;
+
     public Skill() {
     }
 
@@ -57,6 +60,14 @@ public class Skill {
 
     public String getFormation() {
         return formation;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public void setFormation(String formation) {
