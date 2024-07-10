@@ -1,7 +1,7 @@
 package com.server.nata_service.entities;
 
 import jakarta.persistence.*;
-
+import org.hibernate.jdbc.Work;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +107,18 @@ public class Employee {
 
     public List<FeedBack> getFeedBacks() {
         return feedBacks;
+    }
+
+    public void setFeedBacks(List<FeedBack> feedBacks) {
+        this.feedBacks = feedBacks;
+    }
+
+    public List<Work> getWorks() {
+        return works;
+    }
+
+    public void setWorks(List<Work> works) {
+        this.works = works;
     }
 
     @Override
