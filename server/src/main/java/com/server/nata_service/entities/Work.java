@@ -1,2 +1,5 @@
-package com.server.nata_service.entities;public class Work {
+package com.server.nata_service.entities;
+
+public class Work {
+
 }
