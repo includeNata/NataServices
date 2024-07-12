@@ -2,7 +2,7 @@ package com.server.nata_service.services;
 
 import com.server.nata_service.dto.EmployeeDTO;
 import com.server.nata_service.entities.Employee;
-import com.server.nata_service.repository.EmployeeRepository;
+import com.server.nata_service.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

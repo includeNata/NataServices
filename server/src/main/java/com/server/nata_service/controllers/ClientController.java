@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/client")
 public class ClientController {
 
-
-
     @GetMapping
     public ResponseEntity<Object> findAll(){
         return ResponseEntity.ok("test security");
