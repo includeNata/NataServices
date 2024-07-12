@@ -42,6 +42,7 @@ public class Work {
     }
 
     public Long getId() {
+        System.out.println("remove");
         return id;
     }
 
