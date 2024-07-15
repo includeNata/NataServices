@@ -16,20 +16,16 @@ public class EmployeeDTO {
     private String name;
     private String email;
     private String photo;
-    private String password;
     private LocalDate birthday;
-    private Skill skill;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String name, String email, String photo, String password, LocalDate birthday, Skill skill) {
+    public EmployeeDTO(String name, String email, String photo) {
         this.name = name;
         this.email = email;
         this.photo = photo;
-        this.password = password;
-        this.birthday = birthday;
-        this.skill = skill;
+
     }
 
     public EmployeeDTO(Employee employee){
@@ -37,9 +33,7 @@ public class EmployeeDTO {
         this.name = employee.getName();
         this.email = employee.getEmail();
         this.photo = employee.getPhoto();
-        this.password = employee.getPassword();
         this.birthday = employee.getBirthday();
-        this.skill = employee.getSkill();
     }
 
     public Long getId() {
@@ -58,15 +52,7 @@ public class EmployeeDTO {
         return photo;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public LocalDate getBirthday() {
         return birthday;
-    }
-
-    public Skill getSkill() {
-        return skill;
     }
 }
