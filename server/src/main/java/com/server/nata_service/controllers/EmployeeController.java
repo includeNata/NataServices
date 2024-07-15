@@ -30,8 +30,9 @@ public class EmployeeController {
         return ResponseEntity.ok(service.findById(id));
     }
     @PostMapping
-    public ResponseEntity<EmployeeDTO> insert(@RequestBody EmployeeDTO dto){
-        dto = service.insert(dto);
+    public ResponseEntity<EmployeeDTO> insert(@RequestBody Employee employee){
+        EmployeeDTO dto = service.insert(employee);
+
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
@@ -43,7 +44,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> update(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
