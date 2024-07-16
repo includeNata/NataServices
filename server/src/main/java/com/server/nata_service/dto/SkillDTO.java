@@ -4,6 +4,7 @@ import com.server.nata_service.entities.Skill;
 
 public class SkillDTO {
 
+    private Long id;
     private String area;
     private String certificate;
     private String description;
@@ -13,7 +14,8 @@ public class SkillDTO {
     public SkillDTO() {
     }
 
-    public SkillDTO(String area, String certificate, String description, String formation, String technology) {
+    public SkillDTO(Long id, String area, String certificate, String description, String formation, String technology) {
+        this.id = id;
         this.area = area;
         this.certificate = certificate;
         this.description = description;
@@ -22,11 +24,20 @@ public class SkillDTO {
     }
 
     public SkillDTO(Skill skill) {
+        this.id = skill.getId();
         this.area = skill.getArea();
         this.certificate = skill.getCertificate();
         this.description = skill.getDescription();
         this.formation = skill.getFormation();
         this.technology = skill.getTechnology();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getArea() {
