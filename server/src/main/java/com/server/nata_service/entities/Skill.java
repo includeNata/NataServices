@@ -1,6 +1,7 @@
 package com.server.nata_service.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Objects;
 

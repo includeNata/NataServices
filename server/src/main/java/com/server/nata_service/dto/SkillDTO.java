@@ -1,14 +1,28 @@
 package com.server.nata_service.dto;
 
 import com.server.nata_service.entities.Skill;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class SkillDTO {
 
     private Long id;
+
+
+
+    @Size(min = 1, max = 20, message = "Area must be between 1 and 20 characters")
     private String area;
+
+    @Size(min = 1, max = 20, message = "Certificate must be between 1 and 20 characters")
     private String certificate;
+
+    @Size(min = 1, max = 255, message = "Description must be between 1 and 255 characters")
     private String description;
+
+    @Size(min = 1, max = 20, message = "Formation must be between 1 and 20 characters")
     private String formation;
+
+    @Size(min = 1, max = 20, message = "Technology must be between 1 and 20 characters")
     private String technology;
 
     public SkillDTO() {
