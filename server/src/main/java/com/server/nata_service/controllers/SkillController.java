@@ -43,5 +43,11 @@ public class SkillController {
         SkillDTO updatedSkill = skillService.updateSkill(id, skillDTO);
         return ResponseEntity.ok(updatedSkill);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        skillService.deleteSkill(id);
+        return ResponseEntity.noContent().build();
+    }
     
 }

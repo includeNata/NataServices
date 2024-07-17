@@ -3,6 +3,7 @@ package com.server.nata_service.controllers;
 import com.server.nata_service.dto.EmployeeDTO;
 import com.server.nata_service.entities.Employee;
 import com.server.nata_service.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,9 +31,8 @@ public class EmployeeController {
         return ResponseEntity.ok(service.findById(id));
     }
     @PostMapping
-    public ResponseEntity<EmployeeDTO> insert(@RequestBody Employee employee){
+    public ResponseEntity<EmployeeDTO> insert(@Valid @RequestBody Employee employee){
         EmployeeDTO dto = service.insert(employee);
-
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }

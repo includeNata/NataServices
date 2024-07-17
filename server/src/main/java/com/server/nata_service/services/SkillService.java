@@ -3,11 +3,14 @@ package com.server.nata_service.services;
 import com.server.nata_service.dto.SkillDTO;
 import com.server.nata_service.entities.Skill;
 import com.server.nata_service.repositories.SkillRepository;
+import com.server.nata_service.services.exceptions.DatabaseException;
 import com.server.nata_service.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -54,6 +57,19 @@ public class SkillService {
         return new SkillDTO(skill);
     }
 
-    //delete
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void deleteSkill(Long id){
+        if (!skillRepository.existsById(id))
+        {
+            throw new ResourceNotFoundException("Recurso nao encontrado");
+        }
+        try {
+            skillRepository.deleteById(id);
+        }
+        catch (DataIntegrityViolationException e){
+            throw new DatabaseException("Falha de integridade referencial");
+        }
+
+    }
 
 }
