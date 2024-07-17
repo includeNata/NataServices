@@ -1,8 +1,8 @@
 package com.server.nata_service.controllers;
 
-import com.server.nata_service.dto.EmployeeDTO;
 import com.server.nata_service.dto.SkillDTO;
 import com.server.nata_service.services.SkillService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,13 +30,11 @@ public class SkillController {
     }
 
     @PostMapping
-    public ResponseEntity<SkillDTO> createSkill(@RequestBody SkillDTO skillDTO) {
+    public ResponseEntity<SkillDTO> createSkill(@Valid @RequestBody SkillDTO skillDTO) {
         SkillDTO createdSkill = skillService.createSkill(skillDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdSkill.getId()).toUri();
-        System.out.println(ResponseEntity.created(uri).body(createdSkill));
         return ResponseEntity.created(uri).body(createdSkill);
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<SkillDTO> updateSkill(@PathVariable Long id, @RequestBody SkillDTO skillDTO) {

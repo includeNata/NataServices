@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Inter as FontSans } from "next/font/google";
 import React from "react";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,13 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Header />
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Header />
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
