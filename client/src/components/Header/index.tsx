@@ -5,15 +5,18 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
   const { setTheme } = useTheme();
+  const navigate = useRouter();
 
   return (
     <header className="w-full h-auto flex items-center justify-between px-8 py-2 border-b border-b-[#673AB7] fixed z-10">
-      <div className="w-14 h-12 rounded-full relative">
-        <Image src="/logo.svg" alt="logo" className="rounded-full" fill />
-      </div>
+      <Link href="/" className="w-14 h-12 rounded-full relative">
+        <Image src="/logo.svg" alt="logo" className="rounded-full cursor-pointer" fill />
+      </Link>
 
       <ul className="flex gap-11">
         <li className="cursor-pointer text-lg font-semibold text-red-600">Home</li>
@@ -39,14 +42,15 @@ export default function Header() {
 
         <div className="w-auto h-auto flex flex-row items-center justify-center gap-4">
           <Button
-            className="h-auto bg-white shadow-lg px-6 py-1.5 transition-colors hover:bg-[#673AB7] hover:border-[#673AB7] hover:text-white"
+            className="h-auto bg-white shadow-lg px-6 py-1.5 transition-colors hover:bg-[#673AB7] hover:border-transparent hover:text-white"
             variant="primary"
+            onClick={() => navigate.push(`access`)}
           >
             Login
           </Button>
 
           <Button
-            className="bg-[#673AB7] border-[#673AB7] py-1.5 text-white h-auto transition-colors hover:bg-white hover:border-white hover:text-black"
+            className="bg-[#673AB7] border-transparent py-1.5 text-white h-auto transition-colors hover:bg-white hover:border-white hover:text-black"
             variant="primary"
           >
             Sign up
