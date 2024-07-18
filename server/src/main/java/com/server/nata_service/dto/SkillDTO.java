@@ -1,3 +1,7 @@
+package com.server.nata_service.dto;
+
+import com.server.nata_service.entities.Skill;
+
 public class SkillDTO {
     private Long id;
     private String description;
@@ -5,8 +9,6 @@ public class SkillDTO {
     private Long certificateId;
     private Long formationId;
     private Long technologyId;
-
-    // Constructors, getters, and setters
 
     public SkillDTO() {
     }
@@ -20,7 +22,6 @@ public class SkillDTO {
         this.technologyId = technologyId;
     }
 
-    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -67,5 +68,16 @@ public class SkillDTO {
 
     public void setTechnologyId(Long technologyId) {
         this.technologyId = technologyId;
+    }
+
+    public static SkillDTO fromEntity(Skill skill) {
+        return new SkillDTO(
+                skill.getId(),
+                skill.getDescription(),
+                skill.getArea().getId(),
+                skill.getCertificate().getId(),
+                skill.getFormation().getId(),
+                skill.getTechnology().getId()
+        );
     }
 }
