@@ -1,6 +1,8 @@
 package com.server.nata_service.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,15 +17,19 @@ public class Employee {
     private Long id;
 
     @Column(columnDefinition = "varchar(40)",nullable = false)
+    @NotBlank
     private String name;
 
     @Column(columnDefinition = "varchar(45)" ,unique = true ,nullable = false)
+    @Email
     private String email;
 
     @Column(columnDefinition = "varchar(25)",nullable = false)
+    @NotBlank
     private String password;
 
     @Column(nullable = false)
+    @NotBlank
     private LocalDate birthday;
 
     @Column(columnDefinition = "varchar(30)")
