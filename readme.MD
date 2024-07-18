@@ -18,11 +18,35 @@
    - Cadastro, atualização, deleção, paginação e busca por ID.
    - **Skill**
      - Id
-     - Área
-     - Formação
-     - Tecnologias
-     - Certificados
      - Descrição
+     - IdÁrea
+     - IdFormação
+     - IdTecnologia
+     - IdCertificado
+
+2. **Criação de Áreas**
+   - Cadastro, atualização, deleção, paginação e busca por ID.
+   - **Área**
+     - Id
+     - Área
+
+2. **Criação de Formação**
+   - Cadastro, atualização, deleção, paginação e busca por ID.
+   - **Formação**
+     - Id
+     - Formação
+
+2. **Criação de Tecnologias**
+   - Cadastro, atualização, deleção, paginação e busca por ID.
+   - **Tecnologias**
+     - Id
+     - Tecnologia
+
+2. **Criação de Certificados**
+   - Cadastro, atualização, deleção, paginação e busca por ID.
+   - **Certificados**
+     - Id
+     - Certificado
 
 3. **Criação de Trabalhos**
    - Cadastro, atualização, listagem de trabalhos e busca por ID.
