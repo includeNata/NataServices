@@ -1,70 +1,32 @@
-package com.server.nata_service.dto;
-
-import com.server.nata_service.entities.Skill;
-import jakarta.validation.constraints.Size;
-
 public class SkillDTO {
-
     private Long id;
-
-    @Size(min = 1, max = 20, message = "Area must be between 1 and 20 characters")
-    private String area;
-
-    @Size(min = 1, max = 20, message = "Certificate must be between 1 and 20 characters")
-    private String certificate;
-
-    @Size(min = 1, max = 255, message = "Description must be between 1 and 255 characters")
     private String description;
+    private Long areaId;
+    private Long certificateId;
+    private Long formationId;
+    private Long technologyId;
 
-    @Size(min = 1, max = 20, message = "Formation must be between 1 and 20 characters")
-    private String formation;
-
-    @Size(min = 1, max = 20, message = "Technology must be between 1 and 20 characters")
-    private String technology;
+    // Constructors, getters, and setters
 
     public SkillDTO() {
     }
 
-    public SkillDTO(Long id, String area, String certificate, String description, String formation, String technology) {
+    public SkillDTO(Long id, String description, Long areaId, Long certificateId, Long formationId, Long technologyId) {
         this.id = id;
-        this.area = area;
-        this.certificate = certificate;
         this.description = description;
-        this.formation = formation;
-        this.technology = technology;
+        this.areaId = areaId;
+        this.certificateId = certificateId;
+        this.formationId = formationId;
+        this.technologyId = technologyId;
     }
 
-    public SkillDTO(Skill skill) {
-        this.id = skill.getId();
-        this.area = skill.getArea().getName();
-        this.certificate = skill.getCertificate().getName();
-        this.description = skill.getDescription();
-        this.formation = skill.getFormation().getName();
-        this.technology = skill.getTechnology().getName();
-    }
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getCertificate() {
-        return certificate;
-    }
-
-    public void setCertificate(String certificate) {
-        this.certificate = certificate;
     }
 
     public String getDescription() {
@@ -75,19 +37,35 @@ public class SkillDTO {
         this.description = description;
     }
 
-    public String getFormation() {
-        return formation;
+    public Long getAreaId() {
+        return areaId;
     }
 
-    public void setFormation(String formation) {
-        this.formation = formation;
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
     }
 
-    public String getTechnology() {
-        return technology;
+    public Long getCertificateId() {
+        return certificateId;
     }
 
-    public void setTechnology(String technology) {
-        this.technology = technology;
+    public void setCertificateId(Long certificateId) {
+        this.certificateId = certificateId;
+    }
+
+    public Long getFormationId() {
+        return formationId;
+    }
+
+    public void setFormationId(Long formationId) {
+        this.formationId = formationId;
+    }
+
+    public Long getTechnologyId() {
+        return technologyId;
+    }
+
+    public void setTechnologyId(Long technologyId) {
+        this.technologyId = technologyId;
     }
 }
