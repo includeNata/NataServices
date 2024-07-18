@@ -1,14 +1,11 @@
 package com.server.nata_service.dto;
 
 import com.server.nata_service.entities.Skill;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class SkillDTO {
 
     private Long id;
-
-
 
     @Size(min = 1, max = 20, message = "Area must be between 1 and 20 characters")
     private String area;
@@ -39,11 +36,11 @@ public class SkillDTO {
 
     public SkillDTO(Skill skill) {
         this.id = skill.getId();
-        this.area = skill.getArea();
-        this.certificate = skill.getCertificate();
+        this.area = skill.getArea().getName();
+        this.certificate = skill.getCertificate().getName();
         this.description = skill.getDescription();
-        this.formation = skill.getFormation();
-        this.technology = skill.getTechnology();
+        this.formation = skill.getFormation().getName();
+        this.technology = skill.getTechnology().getName();
     }
 
     public Long getId() {

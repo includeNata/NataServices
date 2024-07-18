@@ -1,39 +1,40 @@
 package com.server.nata_service.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-
 import java.util.Objects;
 
 @Entity
 @Table(name = "skill")
 public class Skill {
 
-    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "varchar(20)")
-    private String area;
+    @ManyToOne
+    @JoinColumn(name = "area_id", nullable = false)
+    private Area area;
 
-    @Column(columnDefinition = "varchar(20)")
-    private String formation;
+    @ManyToOne
+    @JoinColumn(name = "formation_id", nullable = false)
+    private Formation formation;
 
-    @Column(columnDefinition = "varchar(20)")
-    private String certificate;
+    @ManyToOne
+    @JoinColumn(name = "certificate_id", nullable = false)
+    private Certificate certificate;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(columnDefinition = "varchar(20)")
-    private String technology;
+    @ManyToOne
+    @JoinColumn(name = "technology_id", nullable = false)
+    private Technology technology;
 
     @OneToOne(mappedBy = "skill")
     private Employee employee;
 
-    public Skill() {
-    }
+    public Skill() {}
 
-    public Skill(Long id, String area, String formation, String certificate, String description, String technology) {
+    public Skill(Long id, Area area, Formation formation, Certificate certificate, String description, Technology technology) {
         this.id = id;
         this.area = area;
         this.formation = formation;
@@ -50,35 +51,27 @@ public class Skill {
         this.id = id;
     }
 
-    public String getArea() {
+    public Area getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(Area area) {
         this.area = area;
     }
 
-    public String getFormation() {
+    public Formation getFormation() {
         return formation;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public void setFormation(String formation) {
+    public void setFormation(Formation formation) {
         this.formation = formation;
     }
 
-    public String getCertificate() {
+    public Certificate getCertificate() {
         return certificate;
     }
 
-    public void setCertificate(String certificate) {
+    public void setCertificate(Certificate certificate) {
         this.certificate = certificate;
     }
 
@@ -90,12 +83,20 @@ public class Skill {
         this.description = description;
     }
 
-    public String getTechnology() {
+    public Technology getTechnology() {
         return technology;
     }
 
-    public void setTechnology(String technology) {
+    public void setTechnology(Technology technology) {
         this.technology = technology;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
