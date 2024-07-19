@@ -63,7 +63,7 @@ public class EmployeeService {
             employeeRepository.deleteById(id);
         }
         catch (DataIntegrityViolationException e){
-            throw new DatabaseException("Falha de integridade referencial");
+            throw new DatabaseException("Referential integrity failure");
         }
 
     }
