@@ -1,56 +1,45 @@
 package com.server.nata_service.controllers;
 
-import com.server.nata_service.dto.TechnologyDTO;
 import com.server.nata_service.entities.Technology;
 import com.server.nata_service.services.TechnologyService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.util.List;
-
 @RestController
-@RequestMapping("/technologie")
+@RequestMapping("/technology")
 public class TechnologyController {
 
-    private final TechnologyService technologyService;
-
     @Autowired
-    public TechnologyController(TechnologyService technologyService) {
-        this.technologyService = technologyService;
-    }
+    private TechnologyService technologyService;
 
     @GetMapping
-    public ResponseEntity<List<TechnologyDTO>> getAllTechnologies() {
-        List<TechnologyDTO> technologies = technologyService.getAllTechnologies();
-        return ResponseEntity.ok(technologies);
+    public ResponseEntity<Page<Technology>> findAll(Pageable pageable) {
+        return ResponseEntity.ok(technologyService.findAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TechnologyDTO> getTechnologyById(@PathVariable Long id) {
-        TechnologyDTO technology = technologyService.getTechnologyById(id);
-        return ResponseEntity.ok(technology);
+    public ResponseEntity<Technology> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(technologyService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<TechnologyDTO> createTechnology(@Valid @RequestBody TechnologyDTO technologyDTO) {
-        TechnologyDTO createdTechnology = technologyService.createTechnology(technologyDTO);
-        URI uri = URI.create("/technologie/" + createdTechnology.getId());
-        return ResponseEntity.created(uri).body(createdTechnology);
+    public ResponseEntity<Technology> create(@Valid @RequestBody Technology technology) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(technologyService.create(technology));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TechnologyDTO> updateTechnology(@PathVariable Long id, @Valid @RequestBody TechnologyDTO technologyDTO) {
-        TechnologyDTO updatedTechnology = technologyService.updateTechnology(id, technologyDTO);
-        return ResponseEntity.ok(updatedTechnology);
+    public ResponseEntity<Technology> update(@Valid @RequestBody Technology technology, @PathVariable Long id) {
+        return ResponseEntity.ok(technologyService.update(id, technology));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTechnology(@PathVariable Long id) {
-        technologyService.deleteTechnology(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        technologyService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
