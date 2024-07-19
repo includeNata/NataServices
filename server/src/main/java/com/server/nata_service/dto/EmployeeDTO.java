@@ -1,13 +1,9 @@
 package com.server.nata_service.dto;
 
-import com.server.nata_service.entities.Employee;
-import com.server.nata_service.entities.FeedBack;
-import com.server.nata_service.entities.Skill;
-import com.server.nata_service.entities.Work;
-import jakarta.persistence.*;
+import com.server.nata_service.entities.*;
+import jakarta.persistence.OneToMany;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDTO {
