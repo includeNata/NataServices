@@ -1,59 +1,46 @@
 package com.server.nata_service.services;
 
-import com.server.nata_service.dto.TechnologyDTO;
 import com.server.nata_service.entities.Technology;
 import com.server.nata_service.repositories.TechnologyRepository;
 import com.server.nata_service.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
-@Transactional
 public class TechnologyService {
 
-    private final TechnologyRepository technologyRepository;
-
     @Autowired
-    public TechnologyService(TechnologyRepository technologyRepository) {
-        this.technologyRepository = technologyRepository;
+    private TechnologyRepository technologyRepository;
+
+    public Page<Technology> findAll(Pageable pageable) {
+        return technologyRepository.findAll(pageable);
     }
 
-    public List<TechnologyDTO> getAllTechnologies() {
-        List<Technology> technologies = technologyRepository.findAll();
-        return technologies.stream()
-                .map(TechnologyDTO::new)
-                .collect(Collectors.toList());
+    @Transactional
+    public Technology findById(Long id) {
+        return technologyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Technology not found"));
     }
 
-    public TechnologyDTO getTechnologyById(Long id) {
-        Technology technology = technologyRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Technology not found"));
-        return new TechnologyDTO(technology);
+    @Transactional
+    public Technology create(Technology technology) {
+        return technologyRepository.save(technology);
     }
 
-    public TechnologyDTO createTechnology(TechnologyDTO technologyDTO) {
-        Technology technology = new Technology();
-        BeanUtils.copyProperties(technologyDTO, technology);
-        technology = technologyRepository.save(technology);
-        return new TechnologyDTO(technology);
+    @Transactional
+    public Technology update(Long id, Technology technology) {
+        Technology existingTechnology = technologyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Technology not found"));
+
+        BeanUtils.copyProperties(technology, existingTechnology, "id");
+
+        return technologyRepository.save(existingTechnology);
     }
 
-    public TechnologyDTO updateTechnology(Long id, TechnologyDTO technologyDTO) {
-        Technology existingTechnology = technologyRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Technology not found"));
-
-        BeanUtils.copyProperties(technologyDTO, existingTechnology);
-
-        existingTechnology = technologyRepository.save(existingTechnology);
-        return new TechnologyDTO(existingTechnology);
-    }
-
-    public void deleteTechnology(Long id) {
+    @Transactional
+    public void delete(Long id) {
         technologyRepository.deleteById(id);
     }
 }
