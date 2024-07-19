@@ -69,15 +69,4 @@ public class SkillDTO {
     public void setTechnologyId(Long technologyId) {
         this.technologyId = technologyId;
     }
-
-    public static SkillDTO fromEntity(Skill skill) {
-        return new SkillDTO(
-                skill.getId(),
-                skill.getDescription(),
-                skill.getArea().getId(),
-                skill.getCertificate().getId(),
-                skill.getFormation().getId(),
-                skill.getTechnology().getId()
-        );
-    }
 }
