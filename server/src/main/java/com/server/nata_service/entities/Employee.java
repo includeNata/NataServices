@@ -39,20 +39,33 @@ public class Employee {
     @OneToMany(mappedBy = "contracted")
     private List<Work> works = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "skill_id" , referencedColumnName = "id")
-    private Skill skill;
+    @OneToMany(mappedBy = "employee")
+    private List<Area> area;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Formation> formation;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Certificate> certificate;
+    @OneToMany(mappedBy = "employee")
+    private List<Technology> technology;
 
     public Employee() {
     }
 
-    public Employee(Long id, String name, String email, String password, LocalDate birthday, String photo) {
+    public Employee(Long id, String name, String email, String password, LocalDate birthday, String photo, List<FeedBack> feedBacks, List<Work> works, List<Area> area, List<Formation> formation, List<Certificate> certificate, List<Technology> technology) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.birthday = birthday;
         this.photo = photo;
+        this.feedBacks = feedBacks;
+        this.works = works;
+        this.area = area;
+        this.formation = formation;
+        this.certificate = certificate;
+        this.technology = technology;
     }
 
     public Long getId() {
@@ -95,14 +108,6 @@ public class Employee {
         this.birthday = birthday;
     }
 
-    public Skill getSkill() {
-        return skill;
-    }
-
-    public void setSkill(Skill skill) {
-        this.skill = skill;
-    }
-
     public String getPhoto() {
         return photo;
     }
@@ -113,6 +118,26 @@ public class Employee {
 
     public List<FeedBack> getFeedBacks() {
         return feedBacks;
+    }
+
+    public List<Work> getWorks() {
+        return works;
+    }
+
+    public List<Area> getArea() {
+        return area;
+    }
+
+    public List<Formation> getFormation() {
+        return formation;
+    }
+
+    public List<Certificate> getCertificate() {
+        return certificate;
+    }
+
+    public List<Technology> getTechnology() {
+        return technology;
     }
 
     @Override

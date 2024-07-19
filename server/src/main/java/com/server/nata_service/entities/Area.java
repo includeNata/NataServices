@@ -10,15 +10,20 @@ public class Area {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "varchar(20)")
+    @Column(columnDefinition = "varchar(50)")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_area_id", nullable = false)
+    private Employee employee;
 
 
     public Area() {}
 
-    public Area(Long id, String name) {
+    public Area(Long id, String name, Employee employee) {
         this.id = id;
         this.name = name;
+        this.employee = employee;
     }
 
     public Long getId() {
@@ -36,6 +41,11 @@ public class Area {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
 
     @Override
     public boolean equals(Object o) {
